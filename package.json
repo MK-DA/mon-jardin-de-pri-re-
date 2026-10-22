@@ -1,0 +1,19 @@
+{
+  "name": "mon-jardin-de-priere",
+  "version": "1.0.0",
+  "description": "Application web Mon Jardin de Prière avec assistant IA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "openai": "^7.42.0"
+  }
+}

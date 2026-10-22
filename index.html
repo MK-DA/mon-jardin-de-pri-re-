@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Jardin de Prière</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🌿 Mon Jardin de Prière</h1>
+      <p>Un moment avec Dieu, chaque jour.</p>
+    </header>
+
+    <main>
+      <section class="accueil">
+        <h2>Bienvenue dans ton jardin spirituel</h2>
+        <p>
+          Prends un moment pour prier, méditer et confier tes sujets à Dieu.
+        </p>
+      </section>
+
+      <section class="verset">
+        <h2>📖 Verset du jour</h2>
+        <p>« Priez sans cesse. »</p>
+        <strong>1 Thessaloniciens 5:17</strong>
+      </section>
+
+      <!-- ASSISTANT DE PRIÈRE AVEC IA -->
+      <section class="assistant-priere" id="assistant-priere">
+        <h2>🤍 Mon assistant de prière</h2>
+
+        <p>
+          Écris ce que tu souhaites confier à Dieu. L'assistant t'aidera à
+          préparer une prière personnalisée.
+        </p>
+
+        <form id="assistant-form">
+          <label for="sujet-priere">Quel est ton sujet de prière ?</label>
+
+          <textarea
+            id="sujet-priere"
+            rows="4"
+            maxlength="1500"
+            placeholder="Ex. : Je prie pour la paix dans ma famille et la sagesse dans mes décisions..."
+            required
+          ></textarea>
+
+          <button type="submit" id="assistant-bouton">Générer ma prière</button>
+        </form>
+
+        <p id="assistant-chargement" hidden>
+          🌿 Préparation de ta prière en cours...
+        </p>
+
+        <div
+          id="assistant-reponse"
+          class="assistant-reponse"
+          aria-live="polite"
+        ></div>
+
+        <button type="button" id="enregistrer-priere" hidden>
+          📖 Enregistrer dans mon journal
+        </button>
+
+        <p id="message-enregistrement" aria-live="polite"></p>
+      </section>
+
+      <section class="formulaire">
+        <h2>🙏 Ajouter un sujet de prière</h2>
+
+        <form id="prayer-form">
+          <label for="titre">Sujet de prière</label>
+          <input
+            type="text"
+            id="titre"
+            placeholder="Ex. : Prier pour ma famille"
+            required
+          />
+
+          <label for="categorie">Catégorie</label>
+          <select id="categorie">
+            <option value="Vie spirituelle">Vie spirituelle</option>
+            <option value="Famille">Famille</option>
+            <option value="Travail et études">Travail et études</option>
+            <option value="Santé">Santé</option>
+            <option value="Finances">Finances</option>
+            <option value="Reconnaissance">Reconnaissance</option>
+            <option value="Autre">Autre</option>
+          </select>
+
+          <label for="details">Détails (facultatif)</label>
+          <textarea
+            id="details"
+            placeholder="Écris ici quelques détails..."
+            rows="3"
+          ></textarea>
+
+          <button type="submit">Ajouter à mes prières</button>
+        </form>
+      </section>
+
+      <section class="programme">
+        <h2>🌱 Mon programme de prière sur 7 jours</h2>
+        <p>Un thème et un passage biblique pour chaque jour.</p>
+
+        <div class="progression">
+          <div class="progression-info">
+            <span>Ma progression</span>
+            <strong id="progression-texte">0 sur 7 jours</strong>
+          </div>
+
+          <div
+            class="progression-barre"
+            role="progressbar"
+            aria-label="Progression du programme de prière"
+            aria-valuemin="0"
+            aria-valuemax="7"
+            aria-valuenow="0"
+            id="progression-barre"
+          >
+            <div id="progression-remplissage"></div>
+          </div>
+        </div>
+
+        <div id="programme-liste"></div>
+
+        <button
+          type="button"
+          id="reinitialiser-programme"
+          class="bouton-reinitialiser"
+        >
+          Recommencer le programme
+        </button>
+      </section>
+
+      <!-- JOURNAL SPIRITUEL -->
+      <section class="journal">
+        <h2>📔 Mon journal spirituel</h2>
+
+        <p>
+          Prends quelques minutes pour écrire tes réflexions, tes méditations et
+          tes moments de reconnaissance.
+        </p>
+
+        <form id="journal-form">
+          <label for="journal-titre">Titre de ma note</label>
+          <input
+            type="text"
+            id="journal-titre"
+            placeholder="Ex. : Ma méditation du jour"
+            maxlength="100"
+            required
+          />
+
+          <label for="journal-type">Type de note</label>
+          <select id="journal-type">
+            <option value="Méditation biblique">Méditation biblique</option>
+            <option value="Reconnaissance">Reconnaissance</option>
+            <option value="Réflexion personnelle">Réflexion personnelle</option>
+            <option value="Verset à retenir">Verset à retenir</option>
+            <option value="Prière personnelle">Prière personnelle</option>
+          </select>
+
+          <label for="journal-reference">Référence biblique (facultatif)</label>
+          <input
+            type="text"
+            id="journal-reference"
+            placeholder="Ex. : Psaume 23:1"
+            maxlength="100"
+          />
+
+          <label for="journal-contenu">Ma réflexion</label>
+          <textarea
+            id="journal-contenu"
+            rows="5"
+            maxlength="5000"
+            placeholder="Écris ici ce que tu souhaites retenir..."
+            required
+          ></textarea>
+
+          <button type="submit" id="journal-bouton">Enregistrer ma note</button>
+
+          <button
+            type="button"
+            id="journal-annuler"
+            class="bouton-reinitialiser"
+            hidden
+          >
+            Annuler la modification
+          </button>
+        </form>
+
+        <div class="journal-entete">
+          <h3>Mes notes enregistrées</h3>
+          <span id="journal-compteur">0 note</span>
+        </div>
+
+        <div id="journal-liste" aria-live="polite">
+          <p id="journal-vide">
+            Ton journal est encore vide. Tu peux écrire ta première note.
+          </p>
+        </div>
+      </section>
+
+      <section class="liste-prieres">
+        <h2>💚 Mes sujets de prière</h2>
+        <div id="prayer-list">
+          <p id="message-vide">Tu n'as pas encore ajouté de sujet.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Mon Jardin de Prière — Cultivons notre vie spirituelle 🌱</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

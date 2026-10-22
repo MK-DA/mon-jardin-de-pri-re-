@@ -1,0 +1,810 @@
+/* Style général */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7f0;
+    color: #263b2b;
+    line-height: 1.6;
+}
+
+/* En-tête */
+header {
+    background-color: #315c42;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+/* Contenu principal */
+main {
+    width: 90%;
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 22px;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+    color: #315c42;
+    margin-top: 0;
+}
+
+/* Accueil */
+.accueil {
+    text-align: center;
+    padding: 35px 25px;
+}
+
+/* Verset biblique */
+.verset {
+    background-color: #e5eedf;
+    text-align: center;
+}
+
+.verset p {
+    font-size: 21px;
+    font-style: italic;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5c8;
+    border-radius: 8px;
+    font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #719b76;
+    border-color: #719b76;
+}
+
+button {
+    background-color: #315c42;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #23442f;
+}
+
+/* Sujets de prière */
+.prayer-card {
+    border-left: 4px solid #719b76;
+    background-color: #f8faf6;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.prayer-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.prayer-card p {
+    white-space: pre-wrap;
+}
+
+.prayer-card .categorie {
+    color: #52765a;
+    font-size: 14px;
+}
+
+.delete-button {
+    background-color: #a94442;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: #813330;
+}
+
+/* Pied de page */
+footer {
+    background-color: #315c42;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+/* Adaptation aux téléphones */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    main {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    .verset p {
+        font-size: 18px;
+    }
+}
+
+/* Programme de priere sur 7 jours */
+.progression {
+    margin: 20px 0;
+}
+
+.progression-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.progression-barre {
+    width: 100%;
+    height: 12px;
+    background-color: #e1e8dd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progression-remplissage {
+    width: 0%;
+    height: 100%;
+    background-color: #719b76;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.journee-priere {
+    border: 1px solid #e0e8dc;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 15px 0;
+    background-color: #f8faf6;
+}
+
+.journee-priere.terminee {
+    border-left: 5px solid #719b76;
+    background-color: #eaf2e6;
+}
+
+.journee-priere h3 {
+    margin: 0 0 8px;
+    color: #315c42;
+}
+
+.journee-priere p {
+    margin: 8px 0;
+}
+
+.journee-priere label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.journee-priere input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #315c42;
+    cursor: pointer;
+}
+
+.bouton-reinitialiser {
+    margin-top: 10px;
+    background-color: #6b756a;
+}
+
+.bouton-reinitialiser:hover {
+    background-color: #505a4f;
+}
+
+@media (max-width: 600px) {
+    .progression-info {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .journee-priere {
+        padding: 13px;
+    }
+}
+
+/* JOURNAL SPIRITUEL */
+
+.journal {
+    border-top: 4px solid #719b76;
+}
+
+.journal form {
+    margin-top: 20px;
+}
+
+.journal label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.journal-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.journal-entete h3 {
+    color: #315c42;
+    margin-bottom: 5px;
+}
+
+#journal-compteur {
+    color: #52765a;
+    font-size: 14px;
+}
+
+.journal-carte {
+    margin-top: 16px;
+    padding: 18px;
+    background-color: #f8faf6;
+    border: 1px solid #e0e8dc;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.journal-carte h4 {
+    color: #315c42;
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+.journal-carte p {
+    white-space: pre-wrap;
+}
+
+.journal-meta {
+    color: #617264;
+    font-size: 13px;
+}
+
+.journal-reference {
+    font-weight: bold;
+    color: #315c42;
+}
+
+.journal-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.journal-actions button {
+    width: auto;
+    padding: 9px 13px;
+    font-size: 14px;
+}
+
+.journal-modifier {
+    background-color: #587b91;
+}
+
+.journal-modifier:hover {
+    background-color: #3f6075;
+}
+
+.journal-supprimer {
+    background-color: #a94442;
+}
+
+.journal-supprimer:hover {
+    background-color: #813330;
+}
+
+#journal-annuler[hidden] {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .journal-actions {
+        flex-direction: column;
+    }
+
+    .journal-actions button {
+        width: 100%;
+    }
+}
+
+/* ASSISTANT DE PRIERE AVEC IA */
+.assistant-priere {
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.assistant-priere h2 {
+    color: #356859;
+    margin-bottom: 12px;
+}
+
+.assistant-priere p {
+    line-height: 1.6;
+}
+
+.assistant-priere form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.assistant-priere label {
+    font-weight: bold;
+}
+
+.assistant-priere textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #cbd5ce;
+    border-radius: 8px;
+    font: inherit;
+    resize: vertical;
+}
+
+.assistant-priere button {
+    background-color: #356859;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.assistant-priere button:hover {
+    background-color: #244c40;
+}
+
+.assistant-priere button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.assistant-reponse {
+    margin-top: 20px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.assistant-reponse p {
+    white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+    .assistant-priere {
+        padding: 18px;
+    }
+}
+
+/* Présentation améliorée des réponses de prière */
+
+.assistant-reponse {
+    margin-top: 25px;
+    line-height: 1.8;
+}
+
+.priere-titre {
+    color: #315b43;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+
+.priere-texte {
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 4px solid #6b9b78;
+    border-radius: 8px;
+    line-height: 1.9;
+    white-space: pre-line;
+    margin-bottom: 20px;
+}
+
+.priere-verset {
+    background-color: #edf5ed;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.priere-verset h4,
+.priere-reflexion h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.priere-verset p,
+.priere-reflexion p {
+    margin-bottom: 0;
+}
+
+.priere-reflexion {
+    background-color: #fff8e8;
+    padding: 18px;
+    border-radius: 10px;
+    border-left: 4px solid #d5b56d;
+}
+
+@media (max-width: 600px) {
+    .priere-titre {
+        font-size: 1.2rem;
+    }
+
+    .priere-texte,
+    .priere-verset,
+    .priere-reflexion {
+        padding: 14px;
+    }
+}
+
+/* Bouton d'enregistrement dans le journal */
+
+#enregistrer-priere {
+    display: block;
+    margin-top: 18px;
+    padding: 12px 20px;
+    background-color: #315b43;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#enregistrer-priere:hover {
+    background-color: #244531;
+}
+
+#enregistrer-priere:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#enregistrer-priere[hidden] {
+    display: none;
+}
+
+#message-enregistrement {
+    margin-top: 10px;
+    color: #315b43;
+}
+
+/* ========================================
+   MON JARDIN DE PRIÈRE
+   Design général moderne et apaisant
+======================================== */
+
+:root {
+    --vert-principal: #315b43;
+    --vert-fonce: #234532;
+    --vert-sauge: #e7efe6;
+    --creme: #fbf8f0;
+    --blanc: #ffffff;
+    --dore: #c5a66b;
+    --texte: #34443a;
+    --texte-doux: #718075;
+    --bordure: #e1e8df;
+    --ombre: 0 8px 25px rgba(40, 70, 48, 0.08);
+}
+
+/* Base de la page */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--creme);
+    color: var(--texte);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+main {
+    width: min(1100px, 92%);
+    margin: 35px auto;
+}
+
+/* En-tête */
+
+header {
+    padding: 35px 20px;
+    text-align: center;
+    color: var(--blanc);
+    background: linear-gradient(
+        135deg,
+        var(--vert-fonce),
+        var(--vert-principal)
+    );
+    border-bottom: 4px solid var(--dore);
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    letter-spacing: 0.3px;
+}
+
+header p {
+    margin: 0;
+    color: #e3eee4;
+}
+
+/* Sections et cartes */
+
+section {
+    margin: 25px 0;
+    padding: 26px;
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    border-radius: 18px;
+    box-shadow: var(--ombre);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: var(--vert-principal);
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+}
+
+h3,
+h4 {
+    color: var(--vert-principal);
+}
+
+p {
+    overflow-wrap: anywhere;
+}
+
+/* Formulaires */
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--vert-fonce);
+    font-weight: 600;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--texte);
+    background: #fff;
+    border: 1px solid #d7e1d5;
+    border-radius: 10px;
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #6b9876;
+    box-shadow: 0 0 0 3px rgba(107, 152, 118, 0.15);
+}
+
+/* Boutons */
+
+button {
+    padding: 11px 18px;
+    color: var(--blanc);
+    background: var(--vert-principal);
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    background: var(--vert-fonce);
+    box-shadow: 0 4px 12px rgba(35, 69, 50, 0.15);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Assistant de prière */
+
+.assistant-priere {
+    background: linear-gradient(145deg, #fff, #f2f7f0);
+    border-top: 3px solid #8cab8e;
+}
+
+.assistant-priere > p {
+    color: var(--texte-doux);
+}
+
+.assistant-reponse {
+    margin-top: 24px;
+}
+
+.priere-titre {
+    color: var(--vert-principal);
+    font-size: 1.45rem;
+}
+
+.priere-texte {
+    background: #fbfcf9;
+    border-left: 4px solid #7fa487;
+    border-radius: 0 12px 12px 0;
+}
+
+.priere-verset {
+    background: var(--vert-sauge);
+    border: 1px solid #dbe7d9;
+}
+
+.priere-reflexion {
+    background: #fff8e9;
+    border-left-color: var(--dore);
+}
+
+/* Listes et éléments de contenu */
+
+section ul {
+    padding-left: 24px;
+}
+
+section li {
+    margin-bottom: 8px;
+}
+
+section li::marker {
+    color: #6b9876;
+}
+
+/* Liens */
+
+a {
+    color: var(--vert-principal);
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--vert-fonce);
+}
+
+/* Journal spirituel */
+
+#journal-form {
+    margin-bottom: 24px;
+}
+
+#message-enregistrement {
+    color: var(--vert-principal);
+    font-weight: 600;
+}
+
+/* Programme de prière */
+
+input[type="checkbox"] {
+    accent-color: var(--vert-principal);
+}
+
+/* Petits écrans */
+
+@media (max-width: 600px) {
+    main {
+        width: 94%;
+        margin: 18px auto;
+    }
+
+    header {
+        padding: 27px 15px;
+    }
+
+    section {
+        padding: 18px;
+        margin: 18px 0;
+        border-radius: 14px;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    #enregistrer-priere {
+        width: 100%;
+    }
+}
+
+/* Respecter les préférences de réduction des animations */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
